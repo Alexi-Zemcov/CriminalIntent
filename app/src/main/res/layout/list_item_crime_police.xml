@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="8"
+        android:layout_weight="5"
         android:orientation="vertical">
 
         <TextView
@@ -25,13 +25,24 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             tools:text="Crime Date" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/holo_blue_bright"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"/>
     </LinearLayout>
 
     <Button
         android:id="@+id/police_btn"
+        style="@style/Widget.AppCompat.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+
         android:layout_weight="2"
-        android:text="Call the police" />
+        android:text="@string/call_the_police"
+        android:textColor="@android:color/holo_red_dark" />
 
 </LinearLayout>

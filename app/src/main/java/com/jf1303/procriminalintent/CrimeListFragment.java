@@ -44,8 +44,8 @@ public class CrimeListFragment extends Fragment {
         private TextView mTitleTextView;
         private TextView mDateTextView;
 
-        public CrimeHolder(LayoutInflater inflater, ViewGroup parent) {
-            super(inflater.inflate(R.layout.list_item_crime, parent, false));
+        public CrimeHolder(View parent) {
+            super(parent);
             itemView.setOnClickListener(this);
             mTitleTextView = (TextView) itemView.findViewById(R.id.crime_title);
             mDateTextView = (TextView) itemView.findViewById(R.id.crime_date);
@@ -77,14 +77,18 @@ public class CrimeListFragment extends Fragment {
 
         @Override
         public CrimeHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-            return new CrimeHolder(layoutInflater, parent);
+//            LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+//            return new CrimeHolder(layoutInflater, parent);
+            View v = null;
+
             switch (viewType) {
                 case ITEM_TYPE_NORMAL:
-                    v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_crime, parent, false);
+                    v = LayoutInflater.from(parent.getContext())
+                            .inflate(R.layout.list_item_crime, parent, false);
                     break;
                 case ITEM_TYPE_POLICE:
-                    v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_crime_police, parent, false);
+                    v = LayoutInflater.from(parent.getContext())
+                            .inflate(R.layout.list_item_crime_police, parent, false);
             }
 
             return new CrimeHolder(v);
@@ -99,6 +103,7 @@ public class CrimeListFragment extends Fragment {
         @Override
         public int getItemViewType(int position) {
             if (mCrimes.get(position).isRequiresPolice()) return ITEM_TYPE_POLICE;
+            return ITEM_TYPE_NORMAL;
         }
 
         @Override
