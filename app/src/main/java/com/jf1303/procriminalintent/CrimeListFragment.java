@@ -1,6 +1,7 @@
 package com.jf1303.procriminalintent;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,8 +63,8 @@ public class CrimeListFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(getActivity(),mCrime.getTitle() + " ckicked!", Toast.LENGTH_LONG)
-                    .show();
+            Intent intent = new Intent(getActivity(), CrimeActivity.class);
+            startActivity(intent);
         }
     }
 
