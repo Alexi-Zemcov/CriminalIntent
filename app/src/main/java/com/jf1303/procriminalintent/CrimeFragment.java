@@ -15,6 +15,9 @@ import android.widget.EditText;
 
 
 import androidx.fragment.app.Fragment;
+
+import java.util.UUID;
+
 import static android.widget.CompoundButton.*;
 
 
@@ -27,7 +30,9 @@ public class CrimeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mCrime = new Crime();
+//        mCrime = new Crime();
+        UUID crimeId = (UUID) getActivity().getIntent().getSerializableExtra(CrimeActivity.EXTRA_CRIME_ID);
+        mCrime = CrimeLab.get(getActivity()).getCrime(crimeId);
     }
 
     @Override
